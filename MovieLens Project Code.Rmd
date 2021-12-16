@@ -1,7 +1,7 @@
 ---
-title: "MovieLens Recommender System Capstone Project - Code"
-author: "Alessandro Corradini - Harvard Data Science Professional"
-date: "May 10, 2019"
+title: "MovieLens Recommendation System - Code"
+author: "Uday Adusumilli"
+date: "16 Dec, 2021"
 output:
   pdf_document:
     toc: true
