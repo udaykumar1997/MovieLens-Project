@@ -53,6 +53,4 @@ Your project submission will be graded both by your peers and by a staff member.
 You can see the [Certificate of Completion](https://github.com/AlessandroCorradini/Certificates/blob/master/EdX%20-%20Harvard%20University%20-%20PH125.9x%20Data%20Science%20Capstone.pdf) and other certificates in my [Certificates Repo](https://github.com/AlessandroCorradini/Certificates) that contains all my certificates obtained through my journey as a self-made Data Science and better developer.
 
 ### Disclaimer
-**Please, don't fork or copy this repository.**
-
-**The Data Science Professional Program offered by HavardX, is a very easy and straight forward path. Data Science is one of the hardest subfield of Computer Science and requires a lot of study and hard work.**
+**Please, don't clone or fork this repository.**
