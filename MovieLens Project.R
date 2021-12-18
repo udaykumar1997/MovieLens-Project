@@ -12,8 +12,10 @@ if(!require(caret)) install.packages("caret", repos = "http://cran.us.r-project.
 # https://grouplens.org/datasets/movielens/10m/
 # http://files.grouplens.org/datasets/movielens/ml-10m.zip
 
-dl <- tempfile()
+dl <- tempfile() # original line
 download.file("http://files.grouplens.org/datasets/movielens/ml-10m.zip", dl)
+
+dl <- tempfile() # modified
 
 ratings <- read.table(text = gsub("::", "\t", readLines(unzip(dl, "ml-10M100K/ratings.dat"))),
                       col.names = c("userId", "movieId", "rating", "timestamp"))
