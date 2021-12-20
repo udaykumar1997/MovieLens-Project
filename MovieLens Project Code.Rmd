@@ -51,14 +51,32 @@ if(!require(caret)) install.packages("caret", repos = "http://cran.us.r-project.
 # MovieLens 10M dataset:
 # https://grouplens.org/datasets/movielens/10m/
 # http://files.grouplens.org/datasets/movielens/ml-10m.zip
+```
 
+
+The following block needs to be executed if the data isn't available locally. Execution of the following block requires an active internet connection.
+```{r}
 dl <- tempfile()
 download.file("http://files.grouplens.org/datasets/movielens/ml-10m.zip", dl)
 
 ratings <- read.table(text = gsub("::", "\t", readLines(unzip(dl, "ml-10M100K/ratings.dat"))),
                       col.names = c("userId", "movieId", "rating", "timestamp"))
 
+
 movies <- str_split_fixed(readLines(unzip(dl, "ml-10M100K/movies.dat")), "\\::", 3)
+```
+
+Execution of the following block requires the data files to be preset in the ml-10M100K folder. The following block is an alternative to the above block.
+```{r}
+ratings <- read.table(text = gsub("::", "\t", readLines("ml-10M100K/ratings.dat")),
+                      col.names = c("userId", "movieId", "rating", "timestamp"))
+
+movies <- str_split_fixed(readLines("ml-10M100K/movies.dat"), "\\::", 3)
+#head(movies)
+```
+
+With the execution of the above block, data loading is complete.
+```{r}
 colnames(movies) <- c("movieId", "title", "genres")
 movies <- as.data.frame(movies) %>% mutate(movieId = as.numeric(levels(movieId))[movieId],
                                            title = as.character(title),
@@ -68,7 +86,8 @@ movielens <- left_join(ratings, movies, by = "movieId")
 
 # Validation set will be 10% of MovieLens data
 
-set.seed(1)
+set.seed(1, sample.kind = "Rounding") # if using R 3.5 or earlier, use `set.seed(1)` instead
+
 test_index <- createDataPartition(y = movielens$rating, times = 1, p = 0.1, list = FALSE)
 edx <- movielens[-test_index,]
 temp <- movielens[test_index,]
@@ -85,6 +104,11 @@ removed <- anti_join(temp, validation)
 edx <- rbind(edx, removed)
 
 rm(dl, ratings, movies, test_index, temp, movielens, removed)
+```
+
+Top rows of the Edx file.
+```{r}
+head(edx)
 ```
 
 \newpage
