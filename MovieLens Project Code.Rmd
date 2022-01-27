@@ -26,6 +26,14 @@ if(!require(tidyverse)) install.packages("tidyverse")
 if(!require(stringr)) install.packages("stringr")
 if(!require(forcats)) install.packages("forcats")
 if(!require(ggplot2)) install.packages("ggplot2")
+
+if(!require(readr)) install.packages("readr")
+if(!require(dplyr)) install.packages("dplyr")
+if(!require(gridExtra)) install.packages("gridExtra")
+if(!require(dslabs)) install.packages("dslabs")
+if(!require(data.table)) install.packages("data.table")
+if(!require(ggrepel)) install.packages("ggrepel")
+if(!require(ggthemes)) install.packages("ggthemes")
 ```
 
 ```{r}
@@ -38,6 +46,13 @@ library(tidyr)
 library(stringr)
 library(forcats)
 library(ggplot2)
+
+library(readr)
+library(gridExtra)
+library(dslabs)
+library(data.table)
+library(ggrepel)
+library(ggthemes)
 
 #############################################################
 # Create edx set, validation set, and submission file
@@ -72,17 +87,36 @@ ratings <- read.table(text = gsub("::", "\t", readLines("ml-10M100K/ratings.dat"
                       col.names = c("userId", "movieId", "rating", "timestamp"))
 
 movies <- str_split_fixed(readLines("ml-10M100K/movies.dat"), "\\::", 3)
-#head(movies)
+
+head(ratings)
+head(movies)
 ```
 
 With the execution of the above block, data loading is complete.
 ```{r}
 colnames(movies) <- c("movieId", "title", "genres")
-movies <- as.data.frame(movies) %>% mutate(movieId = as.numeric(levels(movieId))[movieId],
+
+# movies <- as.data.frame(movies) %>% mutate(movieId = as.numeric(levels(movieId))[movieId],
+#                                           title = as.character(title),
+#                                           genres = as.character(genres)) # original, not working
+
+movies_old <- as.data.frame(movies) %>% mutate(#movieId_one = as.numeric(levels(movieId))[movieId],
+                                           movieId = as.numeric(movieId),
+                                           #movieId_three = as.integer(movieId),
                                            title = as.character(title),
-                                           genres = as.character(genres))
+                                           genres = as.character(genres))# modified
+
+movies = subset(movies_old, select = c(movieId,title,genres))
+
+head(ratings)
+head(movies)
+str(movies)
+str(ratings)
 
 movielens <- left_join(ratings, movies, by = "movieId")
+
+head(movielens)
+str(movielens)
 
 # Validation set will be 10% of MovieLens data
 
@@ -104,6 +138,8 @@ removed <- anti_join(temp, validation)
 edx <- rbind(edx, removed)
 
 rm(dl, ratings, movies, test_index, temp, movielens, removed)
+
+library(kableExtra)
 ```
 
 Top rows of the Edx file.
