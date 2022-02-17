@@ -62,9 +62,18 @@ ratings <- read.table(text = gsub("::", "\t", readLines(unzip(dl, "ml-10M100K/ra
 
 movies <- str_split_fixed(readLines(unzip(dl, "ml-10M100K/movies.dat")), "\\::", 3)
 colnames(movies) <- c("movieId", "title", "genres")
-movies <- as.data.frame(movies) %>% mutate(movieId = as.numeric(levels(movieId))[movieId],
+
+# movies <- as.data.frame(movies) %>% mutate(movieId = as.numeric(levels(movieId))[movieId],
+#                                            title = as.character(title),
+#                                            genres = as.character(genres))
+
+movies_old <- as.data.frame(movies) %>% mutate(#movieId_one = as.numeric(levels(movieId))[movieId],
+                                           movieId = as.numeric(movieId),
+                                           #movieId_three = as.integer(movieId),
                                            title = as.character(title),
-                                           genres = as.character(genres))
+                                           genres = as.character(genres))# modified
+
+movies = subset(movies_old, select = c(movieId,title,genres))
 
 movielens <- left_join(ratings, movies, by = "movieId")
 
