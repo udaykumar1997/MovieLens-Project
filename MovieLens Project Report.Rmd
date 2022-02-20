@@ -3,13 +3,13 @@ title: "MovieLens Recommendation System - Report"
 author: "Uday Adusumilli"
 date: "18 February, 2022"
 output:
+  html_document: default
   pdf_document:
     toc: true
     toc_depth: 2
     number_sections: true
     highlight: pygments
     keep_tex: true
-  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -97,7 +97,7 @@ rm(dl, ratings, movies, test_index, temp, movielens, removed)
 
 # Executive Summary
 
-The purpose for this project is creating a recommender system using MovieLens dataset. 
+The purpose for this project is creating a recommender system using MovieLens dataset.
 
 The version of movielens dataset used for this final assignment contains approximately 10 Milions of movies ratings, divided in 9 Milions for training and one Milion for validation. It is a small subset of a much larger (and famous) dataset with several millions of ratings. Into the training dataset there are approximately **70.000 users** and **11.000 different movies** divided in 20 genres such as Action, Adventure, Horror, Drama, Thriller and more.
 
@@ -110,7 +110,7 @@ $$\mbox{RMSE} = \sqrt{\frac{1}{n}\sum_{t=1}^{n}e_t^2}$$
 RMSE <- function(true_ratings = NULL, predicted_ratings = NULL) {
     sqrt(mean((true_ratings - predicted_ratings)^2))
 }
-```   
+```
 
 For accomplishing this goal, the **Regularized Movie+User+Genre Model** is capable to reach a RMSE of **0.8628**, that is really good.
 
@@ -118,9 +118,9 @@ For accomplishing this goal, the **Regularized Movie+User+Genre Model** is capab
 
 ## Inital data Exploration
 
-The 10 Millions dataset is divided into two dataset: ```edx``` for training purpose and ```validation``` for the validation phase. 
+The 10 Millions dataset is divided into two dataset: `edx` for training purpose and `validation` for the validation phase.
 
-The ```edx``` dataset contains approximately 9 Millions of rows with 70.000 different users and 11.000 movies with rating score between 0.5 and 5. There is no missing values (0 or NA).
+The `edx` dataset contains approximately 9 Millions of rows with 70.000 different users and 11.000 movies with rating score between 0.5 and 5. There is no missing values (0 or NA).
 
 **edx dataset**
 
@@ -147,12 +147,12 @@ kable() %>%
 
 The features/variables/columns in both datasets are six:
 
-- **userId** ```<integer>``` that contains the unique identification number for each user.
-- **movieId** ```<numeric>``` that contains the unique identification number for each movie.
-- **rating** ```<numeric>``` that contains the rating of one movie by one user. Ratings are made on a 5-Star scale with half-star increments.
-- **timestamp** ```<integer>``` that contains the timestamp for one specific rating provided by one user.
-- **title** ```<character>``` that contains the title of each movie including the year of the release.
-- **genres** ```<character>``` that contains a list of pipe-separated of genre of each movie.
+-   **userId** `<integer>` that contains the unique identification number for each user.
+-   **movieId** `<numeric>` that contains the unique identification number for each movie.
+-   **rating** `<numeric>` that contains the rating of one movie by one user. Ratings are made on a 5-Star scale with half-star increments.
+-   **timestamp** `<integer>` that contains the timestamp for one specific rating provided by one user.
+-   **title** `<character>` that contains the title of each movie including the year of the release.
+-   **genres** `<character>` that contains a list of pipe-separated of genre of each movie.
 
 \newpage
 
@@ -169,14 +169,14 @@ head(edx) %>%
 
 ## Dataset Pre-Processing and Feature Engineering
 
-After a initial data exploration, we notice that the ```genres``` are pipe-separated values. It's necessary to extract them for more consisten, robust and precise estimate. We also observe that the ```title``` contains the year where the movie war released and this it could be necessary to predic the movie rating. Finally, we can extract the year and the month for each rating.
+After a initial data exploration, we notice that the `genres` are pipe-separated values. It's necessary to extract them for more consisten, robust and precise estimate. We also observe that the `title` contains the year where the movie war released and this it could be necessary to predic the movie rating. Finally, we can extract the year and the month for each rating.
 
 The pre-processing phase is composed by this steps:
 
-1. Convert ```timestamp``` to a human readable date format;
-2. Extract the month and the year from the date;
-3. Extract the release year for each movie from the title;
-4. Separate each genre from the pipe-separated value. It increases the size of both datasets.
+1.  Convert `timestamp` to a human readable date format;
+2.  Extract the month and the year from the date;
+3.  Extract the release year for each movie from the title;
+4.  Separate each genre from the pipe-separated value. It increases the size of both datasets.
 
 ```{r, echo=FALSE, include=FALSE}
 # Convert timestamp to a human readable date
@@ -278,7 +278,7 @@ validation$monthOfRate <- as.numeric(validation$monthOfRate)
 validation$release <- as.numeric(validation$release)
 ```
 
-After preprocessing the data, ```edx``` dataset looks like this:
+After preprocessing the data, `edx` dataset looks like this:
 
 **Processed edx datadaset**
 
@@ -526,7 +526,7 @@ rmse_mean_model_result <- RMSE(validation$rating, mu_hat)
 results <- data.frame(model="Naive Mean-Baseline Model", RMSE=rmse_mean_model_result)
 ```
 
-The RMSE on the ```validation``` dataset is **1.05**. It is very far for the target RMSE (below 0.87) and that indicates poor performance for the model.
+The RMSE on the `validation` dataset is **1.05**. It is very far for the target RMSE (below 0.87) and that indicates poor performance for the model.
 
 ## Movie-Based Model, a Content-based Approach
 
@@ -563,7 +563,7 @@ rmse_movie_model_result <- RMSE(validation$rating, rmse_movie_model)
 results <- results %>% add_row(model="Movie-Based Model", RMSE=rmse_movie_model_result)
 ```
 
-The RMSE on the ```validation``` dataset is **0.94**. It better than the Naive Mean-Baseline Model, but it is also very far from the target RMSE (below 0.87) and that indicates poor performance for the model.
+The RMSE on the `validation` dataset is **0.94**. It better than the Naive Mean-Baseline Model, but it is also very far from the target RMSE (below 0.87) and that indicates poor performance for the model.
 
 ## Movie + User Model, a User-based approach
 
@@ -573,7 +573,7 @@ The formula used is:
 
 $$Y_{u,i} = \hat{\mu} + b_i + b_u + \epsilon_{u,i}$$
 
-With $\hat{\mu}$ is the mean and $\varepsilon_{i,u}$ is the independent errors sampled from the same distribution centered at 0. The $b_i$ is a measure for the popularity of movie $i$, i.e. the bias of movie $i$. The  $b_u$ is a measure for the mildness of user $u$, i.e. the bias of user $u$.
+With $\hat{\mu}$ is the mean and $\varepsilon_{i,u}$ is the independent errors sampled from the same distribution centered at 0. The $b_i$ is a measure for the popularity of movie $i$, i.e. the bias of movie $i$. The $b_u$ is a measure for the mildness of user $u$, i.e. the bias of user $u$.
 
 ```{r, echo=FALSE, include=TRUE}
 # Calculate the average of all movies
@@ -608,7 +608,7 @@ rmse_movie_user_model_result <- RMSE(validation$rating, rmse_movie_user_model)
 results <- results %>% add_row(model="Movie+User Based Model", RMSE=rmse_movie_user_model_result)
 ```
 
-The RMSE on the ```validation``` dataset is **0.8635** and this is very good. The Movie+User Based Model reaches the desidered performance but applying the regularization techniques, can improve the performance just a little.
+The RMSE on the `validation` dataset is **0.8635** and this is very good. The Movie+User Based Model reaches the desidered performance but applying the regularization techniques, can improve the performance just a little.
 
 ## Movie + User + Genre Model, the Genre Popularity
 
@@ -616,7 +616,7 @@ The formula used is:
 
 $$Y_{u,i} = \hat{\mu} + b_i + b_u + b_{u,g} + \epsilon_{u,i}$$
 
-With $\hat{\mu}$ is the mean and $\varepsilon_{i,u}$ is the independent errors sampled from the same distribution centered at 0. The $b_i$ is a measure for the popularity of movie $i$, i.e. the bias of movie $i$. The  $b_u$ is a measure for the mildness of user $u$, i.e. the bias of user $u$. The  $b_{u,g}$ is a measure for how much a user $u$ likes the genre $g$.
+With $\hat{\mu}$ is the mean and $\varepsilon_{i,u}$ is the independent errors sampled from the same distribution centered at 0. The $b_i$ is a measure for the popularity of movie $i$, i.e. the bias of movie $i$. The $b_u$ is a measure for the mildness of user $u$, i.e. the bias of user $u$. The $b_{u,g}$ is a measure for how much a user $u$ likes the genre $g$.
 
 ```{r, echo=FALSE, include=TRUE}
 # Calculate the average of all movies
@@ -658,17 +658,17 @@ rmse_movie_user_genre_model_result <- RMSE(validation$rating, rmse_movie_user_ge
 results <- results %>% add_row(model="Movie+User+Genre Based Model", RMSE=rmse_movie_user_genre_model_result)
 ```
 
-The RMSE on the ```validation``` dataset is **0.8634** and this is very good.  The Movie+User+Genre Based Model reaches the desidered performance but adding the ```genre``` predictor, doesn't improve significantly the model's performance. Applying the regularization techniques, can improve the performance just a little.
+The RMSE on the `validation` dataset is **0.8634** and this is very good. The Movie+User+Genre Based Model reaches the desidered performance but adding the `genre` predictor, doesn't improve significantly the model's performance. Applying the regularization techniques, can improve the performance just a little.
 
 ## Regularization
 
 The regularization method allows us to add a penalty $\lambda$ (lambda) to penalizes movies with large estimates from a small sample size. In order to optimize $b_i$, it necessary to use this equation:
 
-$$\frac{1}{N} \sum_{u,i} (y_{u,i} - \mu - b_{i})^{2} + \lambda \sum_{i} b_{i}^2$$   
+$$\frac{1}{N} \sum_{u,i} (y_{u,i} - \mu - b_{i})^{2} + \lambda \sum_{i} b_{i}^2$$
 
-reduced to this equation:   
+reduced to this equation:
 
-$$\hat{b_{i}} (\lambda) = \frac{1}{\lambda + n_{i}} \sum_{u=1}^{n_{i}} (Y_{u,i} - \hat{\mu}) $$  
+$$\hat{b_{i}} (\lambda) = \frac{1}{\lambda + n_{i}} \sum_{u=1}^{n_{i}} (Y_{u,i} - \hat{\mu}) $$
 
 ### Regularized Movie-Based Model
 
@@ -726,7 +726,7 @@ rmse_regularized_movie_model <- min(rmses)
 results <- results %>% add_row(model="Regularized Movie-Based Model", RMSE=rmse_regularized_movie_model)
 ```
 
-The RMSE on the ```validation``` dataset is **0.8635** and this is very good. The Movie+User Based Model reaches the desidered performance but applying the regularization techniques, can improve the performance just a little.
+The RMSE on the `validation` dataset is **0.8635** and this is very good. The Movie+User Based Model reaches the desidered performance but applying the regularization techniques, can improve the performance just a little.
 
 ### Regularized Movie+User Model
 
@@ -793,7 +793,7 @@ rmse_regularized_movie_user_model <- min(rmses)
 results <- results %>% add_row(model="Regularized Movie+User Based Model", RMSE=rmse_regularized_movie_user_model)
 ```
 
-The RMSE on the ```validation``` dataset is **0.8629**. The Regularized Movie+User Based Model improves just a little the result of the Non-Regularized Model.
+The RMSE on the `validation` dataset is **0.8629**. The Regularized Movie+User Based Model improves just a little the result of the Non-Regularized Model.
 
 ### Regularized Movie+User+Genre Model
 
@@ -867,11 +867,11 @@ rmse_regularized_movie_user_genre_model <- min(rmses)
 results <- results %>% add_row(model="Regularized Movie+User+Genre Based Model", RMSE=rmse_regularized_movie_user_genre_model)
 ```
 
-The RMSE on the ```validation``` dataset is **0.8628** and this is the best result of the builted models. The Regularized Movie+User+Genre Based Model improves just a little the result of the Non-Regularized Model. As the Non-Regularized Model, the ```genre``` predictor doesn't improve significantly the model's performance.
+The RMSE on the `validation` dataset is **0.8628** and this is the best result of the builted models. The Regularized Movie+User+Genre Based Model improves just a little the result of the Non-Regularized Model. As the Non-Regularized Model, the `genre` predictor doesn't improve significantly the model's performance.
 
 # Results
 
-This is the summary results for all the model builted, trained on ```edx``` dataset and validated on the ```validation``` dataset.
+This is the summary results for all the model builted, trained on `edx` dataset and validated on the `validation` dataset.
 
 ```{r, echo=FALSE, include=TRUE}
 # Shows the results
@@ -886,4 +886,4 @@ results %>%
 
 # Conclusion
 
-After training different models, it's very clear that ```movieId``` and ```userId``` contribute more than the ```genre``` predictor. Without regularization, the model can archieves and overtakes the desidered peformance, but the best is the enemy of the good and applying regularization and adding the ```genre``` predictor, it make possible to reach a RSME of **0.8628** that is the best result for the trained models.
+After training different models, it's very clear that `movieId` and `userId` contribute more than the `genre` predictor. Without regularization, the model can archieves and overtakes the desidered peformance, but the best is the enemy of the good and applying regularization and adding the `genre` predictor, it make possible to reach a RSME of **0.8628** that is the best result for the trained models.
