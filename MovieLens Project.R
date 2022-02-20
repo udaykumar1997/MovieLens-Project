@@ -12,10 +12,8 @@ if(!require(caret)) install.packages("caret", repos = "http://cran.us.r-project.
 # https://grouplens.org/datasets/movielens/10m/
 # http://files.grouplens.org/datasets/movielens/ml-10m.zip
 
-dl <- tempfile() # original line
+ dl <- tempfile() # original line
 download.file("http://files.grouplens.org/datasets/movielens/ml-10m.zip", dl)
-
-dl <- tempfile() # modified
 
 ratings <- read.table(text = gsub("::", "\t", readLines(unzip(dl, "ml-10M100K/ratings.dat"))),
                       col.names = c("userId", "movieId", "rating", "timestamp"))
@@ -23,15 +21,10 @@ ratings <- read.table(text = gsub("::", "\t", readLines(unzip(dl, "ml-10M100K/ra
 movies <- str_split_fixed(readLines(unzip(dl, "ml-10M100K/movies.dat")), "\\::", 3)
 colnames(movies) <- c("movieId", "title", "genres")
 
-# movies <- as.data.frame(movies) %>% mutate(movieId = as.numeric(levels(movieId))[movieId],
-#                                            title = as.character(title),
-#                                            genres = as.character(genres))
-
-movies_old <- as.data.frame(movies) %>% mutate(#movieId_one = as.numeric(levels(movieId))[movieId],
+movies_old <- as.data.frame(movies) %>% mutate(
    movieId = as.numeric(movieId),
-   #movieId_three = as.integer(movieId),
    title = as.character(title),
-   genres = as.character(genres))# modified
+   genres = as.character(genres))
 
 movies = subset(movies_old, select = c(movieId,title,genres))
 

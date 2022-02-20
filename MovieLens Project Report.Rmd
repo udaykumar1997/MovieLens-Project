@@ -63,15 +63,10 @@ ratings <- read.table(text = gsub("::", "\t", readLines(unzip(dl, "ml-10M100K/ra
 movies <- str_split_fixed(readLines(unzip(dl, "ml-10M100K/movies.dat")), "\\::", 3)
 colnames(movies) <- c("movieId", "title", "genres")
 
-# movies <- as.data.frame(movies) %>% mutate(movieId = as.numeric(levels(movieId))[movieId],
-#                                            title = as.character(title),
-#                                            genres = as.character(genres))
-
-movies_old <- as.data.frame(movies) %>% mutate(#movieId_one = as.numeric(levels(movieId))[movieId],
+movies_old <- as.data.frame(movies) %>% mutate(
                                            movieId = as.numeric(movieId),
-                                           #movieId_three = as.integer(movieId),
                                            title = as.character(title),
-                                           genres = as.character(genres))# modified
+                                           genres = as.character(genres))
 
 movies = subset(movies_old, select = c(movieId,title,genres))
 
@@ -140,11 +135,6 @@ kable() %>%
 ```
 
 **Missing Values per Column**
-
-```{r, echo=FALSE, include=TRUE}
-#edx <- edx %>% select(-X)
-#validation <- validation %>% select(-X)
-```
 
 ```{r, echo=FALSE, include=TRUE}
 sapply(edx, function(x) sum(is.na(x))) %>% 
