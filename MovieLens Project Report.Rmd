@@ -3,13 +3,16 @@ title: "MovieLens Recommendation System - Report"
 author: "Uday Adusumilli"
 date: "18 February, 2022"
 output:
-  html_document: default
-  pdf_document:
-    toc: true
-    toc_depth: 2
-    number_sections: true
-    highlight: pygments
-    keep_tex: true
+   pdf_document: 
+     toc: yes
+     toc_depth: 2
+     number_sections: yes
+     highlight: pygments
+     keep_tex: yes
+     fig_caption: yes
+     include:
+        in_header: my_header.tex
+   html_document: default
 ---
 
 ```{r setup, include=FALSE}
