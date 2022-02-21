@@ -57,6 +57,8 @@ if(!require(caret)) install.packages("caret", repos = "http://cran.us.r-project.
 # https://grouplens.org/datasets/movielens/10m/
 # http://files.grouplens.org/datasets/movielens/ml-10m.zip
 
+#####################
+# download block starts
 dl <- tempfile()
 download.file("http://files.grouplens.org/datasets/movielens/ml-10m.zip", dl)
 
@@ -64,6 +66,19 @@ ratings <- read.table(text = gsub("::", "\t", readLines(unzip(dl, "ml-10M100K/ra
                       col.names = c("userId", "movieId", "rating", "timestamp"))
 
 movies <- str_split_fixed(readLines(unzip(dl, "ml-10M100K/movies.dat")), "\\::", 3)
+# download block ends
+#####################
+
+#####################
+# loading ONLY block starts
+# ratings <- read.table(text = gsub("::", "\t", readLines("ml-10M100K/ratings.dat")),
+#                       col.names = c("userId", "movieId", "rating", "timestamp"))
+# 
+# movies <- str_split_fixed(readLines("ml-10M100K/movies.dat"), "\\::", 3)
+# loading ONLY block ends
+#####################
+
+
 colnames(movies) <- c("movieId", "title", "genres")
 
 movies_old <- as.data.frame(movies) %>% mutate(
@@ -132,6 +147,7 @@ edx %>% summarize(Users = n_distinct(userId),
               Movies = n_distinct(movieId)) %>% 
 kable() %>%
    kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+                 latex_options = "hold_position",
                  position = "center",
                  font_size = 10,
                  full_width = FALSE)
@@ -143,6 +159,7 @@ kable() %>%
 sapply(edx, function(x) sum(is.na(x))) %>% 
 kable() %>%
    kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+                 latex_options = "hold_position",
                  position = "center",
                  font_size = 10,
                  full_width = FALSE)
@@ -165,6 +182,7 @@ The features/variables/columns in both datasets are six:
 head(edx) %>%
    kable() %>%
    kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+                 latex_options = "hold_position",
                  position = "center",
                  font_size = 10,
                  full_width = FALSE)
@@ -291,6 +309,7 @@ After preprocessing the data, `edx` dataset looks like this:
 head(edx) %>%
    kable() %>%
    kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+                 latex_options = "hold_position",
                  position = "center",
                  font_size = 10,
                  full_width = FALSE)
@@ -351,6 +370,7 @@ edx %>%
    head(n=25) %>%
    kable() %>%
    kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+                 latex_options = "hold_position",
                  position = "center",
                  font_size = 10,
                  full_width = FALSE)
@@ -378,6 +398,7 @@ edx %>%
    head(n=25) %>%
    kable() %>%
    kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+                 latex_options = "hold_position",
                  position = "center",
                  font_size = 10,
                  full_width = FALSE)
@@ -405,6 +426,7 @@ edx %>%
    head(n=25) %>%
    kable() %>%
    kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+                 latex_options = "hold_position",
                  position = "center",
                  font_size = 10,
                  full_width = FALSE)
@@ -436,6 +458,7 @@ edx %>%
    arrange(desc(count)) %>%
    kable() %>%
    kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+                 latex_options = "hold_position",
                  position = "center",
                  font_size = 10,
                  full_width = FALSE)
@@ -464,6 +487,7 @@ edx %>%
    head(n=35) %>%
    kable() %>%
    kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+                 latex_options = "hold_position",
                  position = "center",
                  font_size = 10,
                  full_width = FALSE)
@@ -492,6 +516,7 @@ edx %>%
    head(n=35) %>%
    kable() %>%
    kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+                 latex_options = "hold_position",
                  position = "center",
                  font_size = 10,
                  full_width = FALSE)
@@ -882,6 +907,7 @@ This is the summary results for all the model builted, trained on `edx` dataset 
 results %>% 
    kable() %>%
    kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+                 latex_options = "hold_position",
              position = "center",
              font_size = 10,
              full_width = FALSE)

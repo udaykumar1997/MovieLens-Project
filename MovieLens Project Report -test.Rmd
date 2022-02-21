@@ -3,15 +3,14 @@ title: "MovieLens Recommendation System - Report"
 author: "Uday Adusumilli"
 date: "18 February, 2022"
 output:
-   pdf_document: 
+   pdf_document: #default
      toc: yes
      toc_depth: 2
      number_sections: yes
      highlight: pygments
      keep_tex: yes
-     fig_caption: yes
-     include:
-#        in_header: my_header.tex
+     # include:
+        # in_header: my_header.tex
    html_document: default
 ---
 
@@ -57,13 +56,31 @@ if(!require(caret)) install.packages("caret", repos = "http://cran.us.r-project.
 # https://grouplens.org/datasets/movielens/10m/
 # http://files.grouplens.org/datasets/movielens/ml-10m.zip
 
-dl <- tempfile()
-download.file("http://files.grouplens.org/datasets/movielens/ml-10m.zip", dl)
+#####################
+# download block starts
 
-ratings <- read.table(text = gsub("::", "\t", readLines(unzip(dl, "ml-10M100K/ratings.dat"))),
+# dl <- tempfile()
+# download.file("http://files.grouplens.org/datasets/movielens/ml-10m.zip", dl)
+# 
+# ratings <- read.table(text = gsub("::", "\t", readLines(unzip(dl, "ml-10M100K/ratings.dat"))),
+#                       col.names = c("userId", "movieId", "rating", "timestamp"))
+# 
+# movies <- str_split_fixed(readLines(unzip(dl, "ml-10M100K/movies.dat")), "\\::", 3)
+
+# download block ends
+#####################
+
+#####################
+# loading ONLY block starts
+
+ratings <- read.table(text = gsub("::", "\t", readLines("ml-10M100K/ratings.dat")),
                       col.names = c("userId", "movieId", "rating", "timestamp"))
 
-movies <- str_split_fixed(readLines(unzip(dl, "ml-10M100K/movies.dat")), "\\::", 3)
+movies <- str_split_fixed(readLines("ml-10M100K/movies.dat"), "\\::", 3)
+
+# loading ONLY block ends
+#####################
+
 colnames(movies) <- c("movieId", "title", "genres")
 
 movies_old <- as.data.frame(movies) %>% mutate(
@@ -132,6 +149,7 @@ edx %>% summarize(Users = n_distinct(userId),
               Movies = n_distinct(movieId)) %>% 
 kable() %>%
    kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+                 latex_options = "hold_position",
                  position = "center",
                  font_size = 10,
                  full_width = FALSE)
