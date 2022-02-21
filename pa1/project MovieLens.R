@@ -1,0 +1,172 @@
+
+#installed  library
+if(!require(tidyverse)) install.packages("tidyverse", repos = "http://cran.us.r-project.org")
+if(!require(caret)) install.packages("caret", repos = "http://cran.us.r-project.org")
+if(!require(data.table)) install.packages("data.table", repos = "http://cran.us.r-project.org")
+if(!require(stringr)) install.packages("stringr")
+if(!require(lubridate)) install.packages("lubridate")
+
+library(lubridate)
+library(tidyverse)
+library(caret)
+library(data.table)
+library(stringr)
+
+library(readr)
+dl <- tempfile()
+
+#load data
+download.file("http://files.grouplens.org/datasets/movielens/ml-10m.zip", dl)
+
+
+ratings <- fread(text = gsub("::", "\t", readLines(unzip(dl, "ml-10M100K/ratings.dat"))),
+                 col.names = c("userId", "movieId", "rating", "timestamp"))
+
+movies <- str_split_fixed(readLines(unzip(dl, "ml-10M100K/movies.dat")), "\\::", 3)
+
+
+colnames(movies) <- c("movieId", "title", "genres")
+
+movies <- as.data.frame(movies) %>% mutate(movieId = as.numeric(movieId),
+                                           title = as.character(title),
+                                           genres = as.character(genres))
+
+movielens <- left_join(ratings, movies, by = "movieId")
+
+# Validation set will be 10% of MovieLens data
+set.seed(1, sample.kind="Rounding")
+test_index <- createDataPartition(y = movielens$rating, times = 1, p = 0.1, list = FALSE)
+edx <- movielens[-test_index,]
+temp <- movielens[test_index,]
+
+# Make sure userId and movieId in validation set are also in edx set
+validation <- temp %>% 
+  semi_join(edx, by = "movieId") %>%
+  semi_join(edx, by = "userId")
+
+# Add rows removed from validation set back into edx set
+removed <- anti_join(temp, validation)
+edx <- rbind(edx, removed)
+
+str(edx)
+
+rm(dl, ratings, movies, test_index, temp, movielens, removed)
+
+``
+
+################Data Summary and Exploratory Data Analysis############
+
+names(edx)
+dim(edx)
+
+edx %>% 
+  count(movieId) %>% 
+  ggplot(aes(n)) + 
+  geom_histogram( bins=10, color = "red") +
+  scale_x_log10() + 
+  ggtitle("Number of Ratings for each Movies") +
+  xlab("Movie ID") +
+  ylab("Number of Ratings")
+
+edx %>% 
+  count(userId) %>% 
+  ggplot(aes(n)) + 
+  geom_histogram( bins=10, color = "red") +
+  scale_x_log10() + 
+  ggtitle("Number of Ratings per user") +
+  xlab("userId") +
+  ylab("Number of Ratings")
+
+#Partition the data 70% for training and 30% for Testing
+set.seed(1)
+test_index <- createDataPartition(y = edx$rating, times = 1, p = 0.3, list = FALSE)
+train_set <- edx[-test_index,]
+test_set <- edx[test_index,]
+#to make sure we don???t include users and movies in the test set that do not appear in 
+#the training set, we remove these entries using the semi_join function:
+test_set <- test_set %>% 
+  semi_join(train_set, by = "movieId") %>%
+  semi_join(train_set, by = "userId")
+
+#RMSE calculation Function 
+
+#RMSE <- function(actual_rating, prediction_ratings){
+#  sqrt(mean((actual - prediction)^2))
+#}
+
+# first model 
+Mu1 <- mean(train_set$rating)
+Mu1
+
+RMSE1 <- RMSE( Mu1,test_set$rating)
+RMSE1
+
+#creating a table for the RMSE result to store all the result from each method to compare
+
+rmse_results <- data_frame(method = "Just the average", RMSE = naive_rmse)
+
+#second model 
+#as we saw on the exploratory analysis some are rated more than other 
+#We can augment our previous model by adding the term  b_i 
+#to represent average ranking for movie i
+#Y_{u,i} = \mu + b_i + \varepsilon_{u,i}
+#We can again use least squared to estimate the movie effect 
+Mu2 <- mean(train_set$rating) 
+avg_movie <- train_set %>% 
+  group_by(movieId) %>% 
+  summarize(b_i = mean(rating - Mu2))
+avg_movie
+#we can see that variability in the estimate as plotted here 
+movie_avgs %>% qplot(b_i, geom ="histogram", bins = 10, data = ., color = I("black"))
+#let's see how the prediction improves 
+predicted_ratings <- Mu2 + test_set %>% 
+  left_join(avg_movie, by='movieId') %>%
+  pull(b_i)
+
+RMSE2 <- RMSE(predicted_ratings, test_set$rating)
+RMSE2
+
+
+# Third model 
+# let;s compure the user I for , for those who ratedover 100 movies 
+train_set %>% 
+  group_by(userId) %>% 
+  summarize(b_u = mean(rating)) %>% 
+  filter(n()>=100) %>%
+  ggplot(aes(b_u)) + 
+  geom_histogram(bins = 30, color = "green")
+#hat there is substantial variability across users ratings as well. T
+#his implies that a further improvement to our 
+#model may be:
+#$Y~u,i~ = ?? + b~i~ + ??~u,i~$
+#we could fit this model by using use the lm() function but as mentioned earlier it 
+#would be very slow
+#lm(rating ~ as.factor(movieId) + as.factor(userId))
+#so here is the code 
+user_avgs <- train_set %>% 
+  left_join(avg_movie, by='movieId') %>%
+  group_by(userId) %>%
+  summarize(b_u = mean(rating - Mu2 - b_i))
+user_avgs
+
+#now let's see how RMSE improved this time 
+predicted_ratings <- test_set %>% 
+  left_join(avg_movie, by='movieId') %>%
+  left_join(user_avgs, by='userId') %>%
+  mutate(pred = Mu2 + b_i + b_u) %>%
+  .$pred
+
+RMSE3 <- RMSE(predicted_ratings, test_set$rating)
+
+RMSE3
+
+## RMSE of the validation set
+
+valid_pred_rating <- validation %>%
+  left_join(avg_movie, by = "movieId" ) %>% 
+  left_join(user_avgs , by = "userId") %>%
+  mutate(pred = Mu2 + b_i + b_u) %>%
+  pull(pred)
+
+RMSE4<- RMSE(valid_pred_rating,validation$rating)
+RMSE4

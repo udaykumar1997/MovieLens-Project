@@ -1,12 +1,12 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.9)  21 FEB 2022 03:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.9)  21 FEB 2022 18:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **MovieLens-Project-Report.tex
 (./MovieLens-Project-Report.tex
 LaTeX2e <2021-06-01> patch level 1
-L3 programming layer <2021-08-27>
-(c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
+L3 programming layer <2021-08-27> (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-
+dist/tex/latex/base/article.cls
 Document Class: article 2021/02/12 v1.4n Standard LaTeX document class
 (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
@@ -34,8 +34,8 @@ Package: amstext 2000/06/29 v2.01 AMS text
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks16
 \ex@=\dimen139
-))
-(c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
+)) (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.s
+ty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen140
 ) (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.st
@@ -141,16 +141,14 @@ LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
 2.
 (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-))
-(c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/inputenc.sty
+)) (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/inputenc.st
+y
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks21
 \inpenc@posthook=\toks22
-)
-(c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty
+) (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
-)
-(c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
+) (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 
 (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.
@@ -247,7 +245,6 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
 \Hy@SavedSpaceFactor=\count270
-
 (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2021-06-07 v7.00m Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -330,7 +327,6 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/geometry/geometry.s
 ty
 Package: geometry 2020/01/02 v5.9 Page Geometry
-
 (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
@@ -354,7 +350,6 @@ Package: graphicx 2020/12/05 v1.2c Enhanced LaTeX Graphics (DPC,SPQR)
 (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphics.s
 ty
 Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
-
 (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
@@ -366,6 +361,13 @@ Package graphics Info: Driver file: pdftex.def on input line 107.
 )
 \Gin@req@height=\dimen160
 \Gin@req@width=\dimen161
+) (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count281
+\float@exts=\toks25
+\float@box=\box52
+\@float@everytoks=\toks26
+\@floatcapt=\box53
 )
 (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.s
 ty
@@ -380,12 +382,12 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen169
 \cmidrulekern=\dimen170
 \defaultaddspace=\dimen171
-\@cmidla=\count281
-\@cmidlb=\count282
+\@cmidla=\count282
+\@cmidlb=\count283
 \@aboverulesep=\dimen172
 \@belowrulesep=\dimen173
-\@thisruleclass=\count283
-\@lastruleclass=\count284
+\@thisruleclass=\count284
+\@lastruleclass=\count285
 \@thisrulewidth=\dimen174
 )
 (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
@@ -394,50 +396,43 @@ Package: longtable 2021-05-07 v4.16 Multi-page Table package (DPC)
 \LTright=\skip54
 \LTpre=\skip55
 \LTpost=\skip56
-\LTchunksize=\count285
+\LTchunksize=\count286
 \LTcapwidth=\dimen175
-\LT@head=\box52
-\LT@firsthead=\box53
-\LT@foot=\box54
-\LT@lastfoot=\box55
-\LT@gbox=\box56
-\LT@cols=\count286
-\LT@rows=\count287
-\c@LT@tables=\count288
-\c@LT@chunks=\count289
-\LT@p@ftn=\toks25
+\LT@head=\box54
+\LT@firsthead=\box55
+\LT@foot=\box56
+\LT@lastfoot=\box57
+\LT@gbox=\box58
+\LT@cols=\count287
+\LT@rows=\count288
+\c@LT@tables=\count289
+\c@LT@chunks=\count290
+\LT@p@ftn=\toks27
 ) (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
 Package: array 2021/04/20 v2.5e Tabular extension package (FMi)
 \col@sep=\dimen176
-\ar@mcellbox=\box57
+\ar@mcellbox=\box59
 \extrarowheight=\dimen177
-\NC@list=\toks26
+\NC@list=\toks28
 \extratabsurround=\skip57
 \backup@length=\skip58
-\ar@cellbox=\box58
+\ar@cellbox=\box60
 )
 (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/multirow/multirow.s
 ty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@colwidth=\skip59
-\multirow@cntb=\count290
+\multirow@cntb=\count291
 \multirow@dima=\skip60
 \bigstrutjot=\dimen178
 )
 (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig.sty
 \wrapoverhang=\dimen179
 \WF@size=\dimen180
-\c@WF@wrappedlines=\count291
-\WF@box=\box59
-\WF@everypar=\toks27
+\c@WF@wrappedlines=\count292
+\WF@box=\box61
+\WF@everypar=\toks29
 Package: wrapfig 2003/01/31  v 3.6
-) (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/float/float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count292
-\float@exts=\toks28
-\float@box=\box60
-\@float@everytoks=\toks29
-\@floatcapt=\box61
 )
 (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/colortbl/colortbl.s
 ty
@@ -504,8 +499,7 @@ es.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
 \TPTL@width=\skip63
-)
-(c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
+) (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
 \UL@box=\box68
 \UL@hyphenbox=\box69
 \UL@skip=\skip64
@@ -532,24 +526,24 @@ File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
 ) (./MovieLens-Project-Report.aux)
 \openout1 = `MovieLens-Project-Report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
 
 (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstop
 df-base.sty
@@ -562,7 +556,7 @@ f-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 84.
+Package hyperref Info: Link coloring OFF on input line 92.
 
 (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.st
 y
@@ -578,14 +572,12 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count303
 )
-LaTeX Info: Redefining \ref on input line 84.
-LaTeX Info: Redefining \pageref on input line 84.
-LaTeX Info: Redefining \nameref on input line 84.
- (./MovieLens-Project-Report.out)
-(./MovieLens-Project-Report.out)
+LaTeX Info: Redefining \ref on input line 92.
+LaTeX Info: Redefining \pageref on input line 92.
+LaTeX Info: Redefining \nameref on input line 92.
+(./MovieLens-Project-Report.out) (./MovieLens-Project-Report.out)
 \@outlinefile=\write3
 \openout3 = `MovieLens-Project-Report.out'.
-
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -621,48 +613,42 @@ LaTeX Info: Redefining \nameref on input line 84.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 8
-6.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 9
+4.
 (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 8
-6.
-
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 9
+4.
 (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-86.
-
+94.
 (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-86.
-
+94.
 (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 86.
+(Font)              <12> on input line 94.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 86.
+(Font)              <8> on input line 94.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 86.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 86.
-
+(Font)              <6> on input line 94.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 94.
 
 (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 86.
-
+LaTeX Font Info:    Trying to load font information for U+msb on input line 94.
 
 (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-(./MovieLens-Project-Report.toc
+) (./MovieLens-Project-Report.toc
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 3.
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -673,209 +659,175 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 \tf@toc=\write4
 \openout4 = `MovieLens-Project-Report.toc'.
 
- [1
+[1
 
 {c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex
 .map}]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-23.
-
+31.
 (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-75.
-
+83.
 (c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-[2]
-Overfull \hbox (8.56404pt too wide) in paragraph at lines 202--220
+) [2]
+Overfull \hbox (8.56404pt too wide) in paragraph at lines 210--228
  [][] 
  []
 
 [3]
-
-! LaTeX Error: File `MovieLens-Project-Report_files/figure-latex/unnamed-chunk-
-16-1' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.288 ...rt_files/figure-latex/unnamed-chunk-16-1}
-                                                   \end{center}
-I could not locate the file with any of these extensions:
-.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-<MovieLens-Project-Report_files/figure-latex/unnamed-chunk-17-1.pdf, id=108, 46
+<MovieLens-Project-Report_files/figure-latex/unnamed-chunk-16-1.pdf, id=108, 46
+9.755pt x 325.215pt>
+File: MovieLens-Project-Report_files/figure-latex/unnamed-chunk-16-1.pdf Graphi
+c file (type pdf)
+<use MovieLens-Project-Report_files/figure-latex/unnamed-chunk-16-1.pdf>
+Package pdftex.def Info: MovieLens-Project-Report_files/figure-latex/unnamed-ch
+unk-16-1.pdf  used on input line 296.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+<MovieLens-Project-Report_files/figure-latex/unnamed-chunk-17-1.pdf, id=109, 46
 9.755pt x 325.215pt>
 File: MovieLens-Project-Report_files/figure-latex/unnamed-chunk-17-1.pdf Graphi
 c file (type pdf)
 <use MovieLens-Project-Report_files/figure-latex/unnamed-chunk-17-1.pdf>
 Package pdftex.def Info: MovieLens-Project-Report_files/figure-latex/unnamed-ch
-unk-17-1.pdf  used on input line 292.
+unk-17-1.pdf  used on input line 300.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-
-! LaTeX Error: File `MovieLens-Project-Report_files/figure-latex/unnamed-chunk-
-17-2' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.294 ...rt_files/figure-latex/unnamed-chunk-17-2}
-                                                   \end{center}
-I could not locate the file with any of these extensions:
-.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-<MovieLens-Project-Report_files/figure-latex/unnamed-chunk-18-1.pdf, id=109, 46
+[4 <./MovieLens-Project-Report_files/figure-latex/unnamed-chunk-16-1.pdf>]
+<MovieLens-Project-Report_files/figure-latex/unnamed-chunk-17-2.pdf, id=121, 46
+9.755pt x 325.215pt>
+File: MovieLens-Project-Report_files/figure-latex/unnamed-chunk-17-2.pdf Graphi
+c file (type pdf)
+<use MovieLens-Project-Report_files/figure-latex/unnamed-chunk-17-2.pdf>
+Package pdftex.def Info: MovieLens-Project-Report_files/figure-latex/unnamed-ch
+unk-17-2.pdf  used on input line 302.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[5 <./MovieLens-Project-Report_files/figure-latex/unnamed-chunk-17-1.pdf>]
+<MovieLens-Project-Report_files/figure-latex/unnamed-chunk-18-1.pdf, id=132, 46
 9.755pt x 325.215pt>
 File: MovieLens-Project-Report_files/figure-latex/unnamed-chunk-18-1.pdf Graphi
 c file (type pdf)
 <use MovieLens-Project-Report_files/figure-latex/unnamed-chunk-18-1.pdf>
 Package pdftex.def Info: MovieLens-Project-Report_files/figure-latex/unnamed-ch
-unk-18-1.pdf  used on input line 300.
+unk-18-1.pdf  used on input line 308.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[4 <./MovieLens-Project-Report_files/figure-latex/unnamed-chunk-17-1.pdf>]
-<MovieLens-Project-Report_files/figure-latex/unnamed-chunk-19-1.pdf, id=122, 46
+[6 <./MovieLens-Project-Report_files/figure-latex/unnamed-chunk-17-2.pdf>]
+<MovieLens-Project-Report_files/figure-latex/unnamed-chunk-19-1.pdf, id=144, 46
 9.755pt x 325.215pt>
 File: MovieLens-Project-Report_files/figure-latex/unnamed-chunk-19-1.pdf Graphi
 c file (type pdf)
 <use MovieLens-Project-Report_files/figure-latex/unnamed-chunk-19-1.pdf>
 Package pdftex.def Info: MovieLens-Project-Report_files/figure-latex/unnamed-ch
-unk-19-1.pdf  used on input line 305.
+unk-19-1.pdf  used on input line 313.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[7 <./MovieLens-Project-Report_files/figure-latex/unnamed-chunk-18-1.pdf>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<MovieLens-Project-Report_files/figure-latex/unnamed-chunk-21-1.pdf, id=158, 46
+9.755pt x 325.215pt>
+File: MovieLens-Project-Report_files/figure-latex/unnamed-chunk-21-1.pdf Graphi
+c file (type pdf)
+<use MovieLens-Project-Report_files/figure-latex/unnamed-chunk-21-1.pdf>
+Package pdftex.def Info: MovieLens-Project-Report_files/figure-latex/unnamed-ch
+unk-21-1.pdf  used on input line 380.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[8 <./MovieLens-Project-Report_files/figure-latex/unnamed-chunk-19-1.pdf>] [9]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<MovieLens-Project-Report_files/figure-latex/unnamed-chunk-23-1.pdf, id=175, 46
+9.755pt x 325.215pt>
+File: MovieLens-Project-Report_files/figure-latex/unnamed-chunk-23-1.pdf Graphi
+c file (type pdf)
+<use MovieLens-Project-Report_files/figure-latex/unnamed-chunk-23-1.pdf>
+Package pdftex.def Info: MovieLens-Project-Report_files/figure-latex/unnamed-ch
+unk-23-1.pdf  used on input line 447.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[10 <./MovieLens-Project-Report_files/figure-latex/unnamed-chunk-21-1.pdf>] [11
+]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<MovieLens-Project-Report_files/figure-latex/unnamed-chunk-25-1.pdf, id=191, 46
+9.755pt x 325.215pt>
+File: MovieLens-Project-Report_files/figure-latex/unnamed-chunk-25-1.pdf Graphi
+c file (type pdf)
+<use MovieLens-Project-Report_files/figure-latex/unnamed-chunk-25-1.pdf>
+Package pdftex.def Info: MovieLens-Project-Report_files/figure-latex/unnamed-ch
+unk-25-1.pdf  used on input line 519.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[12 <./MovieLens-Project-Report_files/figure-latex/unnamed-chunk-23-1.pdf>]
+Overfull \vbox (13.58403pt too high) has occurred while \output is active []
+
+[13 <./MovieLens-Project-Report_files/figure-latex/unnamed-chunk-25-1.pdf>]
+<MovieLens-Project-Report_files/figure-latex/unnamed-chunk-27-1.pdf, id=214, 46
+9.755pt x 325.215pt>
+File: MovieLens-Project-Report_files/figure-latex/unnamed-chunk-27-1.pdf Graphi
+c file (type pdf)
+<use MovieLens-Project-Report_files/figure-latex/unnamed-chunk-27-1.pdf>
+Package pdftex.def Info: MovieLens-Project-Report_files/figure-latex/unnamed-ch
+unk-27-1.pdf  used on input line 576.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-[5 <./MovieLens-Project-Report_files/figure-latex/unnamed-chunk-18-1.pdf>]
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-! LaTeX Error: File `MovieLens-Project-Report_files/figure-latex/unnamed-chunk-
-21-1' not found.
+<MovieLens-Project-Report_files/figure-latex/unnamed-chunk-29-1.pdf, id=215, 46
+9.755pt x 325.215pt>
+File: MovieLens-Project-Report_files/figure-latex/unnamed-chunk-29-1.pdf Graphi
+c file (type pdf)
+<use MovieLens-Project-Report_files/figure-latex/unnamed-chunk-29-1.pdf>
+Package pdftex.def Info: MovieLens-Project-Report_files/figure-latex/unnamed-ch
+unk-29-1.pdf  used on input line 633.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[14 <./MovieLens-Project-Report_files/figure-latex/unnamed-chunk-27-1.pdf>]
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.372 ...rt_files/figure-latex/unnamed-chunk-21-1}
-                                                   \end{center}
-I could not locate the file with any of these extensions:
-.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-! LaTeX Error: File `MovieLens-Project-Report_files/figure-latex/unnamed-chunk-
-23-1' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.439 ...rt_files/figure-latex/unnamed-chunk-23-1}
-                                                   \end{center}
-I could not locate the file with any of these extensions:
-.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `MovieLens-Project-Report_files/figure-latex/unnamed-chunk-
-25-1' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.511 ...rt_files/figure-latex/unnamed-chunk-25-1}
-                                                   \end{center}
-I could not locate the file with any of these extensions:
-.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `MovieLens-Project-Report_files/figure-latex/unnamed-chunk-
-27-1' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.568 ...rt_files/figure-latex/unnamed-chunk-27-1}
-                                                   \end{center}
-I could not locate the file with any of these extensions:
-.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `MovieLens-Project-Report_files/figure-latex/unnamed-chunk-
-29-1' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.625 ...rt_files/figure-latex/unnamed-chunk-29-1}
-                                                   \end{center}
-I could not locate the file with any of these extensions:
-.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[6 <./MovieLens-Project-Report_files/figure-latex/unnamed-chunk-19-1.pdf>]
-[7] [8] [9] [10]
-
-! LaTeX Error: File `MovieLens-Project-Report_files/figure-latex/unnamed-chunk-
-36-1' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.788 ...rt_files/figure-latex/unnamed-chunk-36-1}
-                                                   \end{center}
-I could not locate the file with any of these extensions:
-.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-<MovieLens-Project-Report_files/figure-latex/unnamed-chunk-37-1.pdf, id=180, 46
+[15 <./MovieLens-Project-Report_files/figure-latex/unnamed-chunk-29-1.pdf>] [16
+]
+<MovieLens-Project-Report_files/figure-latex/unnamed-chunk-36-1.pdf, id=247, 46
+9.755pt x 325.215pt>
+File: MovieLens-Project-Report_files/figure-latex/unnamed-chunk-36-1.pdf Graphi
+c file (type pdf)
+<use MovieLens-Project-Report_files/figure-latex/unnamed-chunk-36-1.pdf>
+Package pdftex.def Info: MovieLens-Project-Report_files/figure-latex/unnamed-ch
+unk-36-1.pdf  used on input line 796.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[17]
+<MovieLens-Project-Report_files/figure-latex/unnamed-chunk-37-1.pdf, id=258, 46
 9.755pt x 325.215pt>
 File: MovieLens-Project-Report_files/figure-latex/unnamed-chunk-37-1.pdf Graphi
 c file (type pdf)
 <use MovieLens-Project-Report_files/figure-latex/unnamed-chunk-37-1.pdf>
 Package pdftex.def Info: MovieLens-Project-Report_files/figure-latex/unnamed-ch
-unk-37-1.pdf  used on input line 799.
+unk-37-1.pdf  used on input line 807.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[11]
-<MovieLens-Project-Report_files/figure-latex/unnamed-chunk-38-1.pdf, id=192, 46
+[18 <./MovieLens-Project-Report_files/figure-latex/unnamed-chunk-36-1.pdf>]
+<MovieLens-Project-Report_files/figure-latex/unnamed-chunk-38-1.pdf, id=270, 46
 9.755pt x 325.215pt>
 File: MovieLens-Project-Report_files/figure-latex/unnamed-chunk-38-1.pdf Graphi
 c file (type pdf)
 <use MovieLens-Project-Report_files/figure-latex/unnamed-chunk-38-1.pdf>
 Package pdftex.def Info: MovieLens-Project-Report_files/figure-latex/unnamed-ch
-unk-38-1.pdf  used on input line 809.
+unk-38-1.pdf  used on input line 817.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
- [12 <./MovieLens-Project-Report_files/figure-latex/unnamed-chunk-37-1.pdf>] [1
-3 <./MovieLens-Project-Report_files/figure-latex/unnamed-chunk-38-1.pdf>]
-[14] (./MovieLens-Project-Report.aux)
+[19 <./MovieLens-Project-Report_files/figure-latex/unnamed-chunk-37-1.pdf>] [20
+ <./MovieLens-Project-Report_files/figure-latex/unnamed-chunk-38-1.pdf>] [21] (
+./MovieLens-Project-Report.aux)
 Package rerunfilecheck Info: File `MovieLens-Project-Report.out' has not change
 d.
 (rerunfilecheck)             Checksum: 2E8257B293CC812472D7CB562552B70D;2676.
  ) 
 Here is how much of TeX's memory you used:
- 12048 strings out of 480559
- 194745 string characters out of 5901529
- 499447 words of memory out of 5000000
- 29336 multiletter control sequences out of 15000+600000
+ 11869 strings out of 480559
+ 182182 string characters out of 5901529
+ 487542 words of memory out of 5000000
+ 29163 multiletter control sequences out of 15000+600000
  449505 words of font info for 68 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 60i,9n,66p,386b,397s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,9n,66p,386b,401s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathi
 t.enc}{c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-m
 athsy.enc}{c:/Users/Uday/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/
@@ -895,10 +847,10 @@ eX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/Uday/AppData/Roaming/Ti
 nyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Users/Uday/AppData/Roaming/
 TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/Uday/AppData/Roam
 ing/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on MovieLens-Project-Report.pdf (14 pages, 280314 bytes).
+Output written on MovieLens-Project-Report.pdf (21 pages, 323742 bytes).
 PDF statistics:
- 300 PDF objects out of 1000 (max. 8388607)
- 245 compressed objects within 3 object streams
- 70 named destinations out of 1000 (max. 500000)
- 138 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 381 PDF objects out of 1000 (max. 8388607)
+ 302 compressed objects within 4 object streams
+ 77 named destinations out of 1000 (max. 500000)
+ 178 words of extra memory for PDF output out of 10000 (max. 10000000)
 

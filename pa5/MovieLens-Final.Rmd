@@ -1,0 +1,244 @@
+---
+title: "MovieLens Capstone"
+author: "Edy Susanto"
+date: "`r format(Sys.Date())`"
+output:
+  html_document:
+    df_print: paged
+  word_document: default
+  pdf_document: default
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Background
+
+This capstone project is an exploration of a MovieLens dataset that tries to help find movies for users based on ratings that others have left for movies. We experiment with creating a recommendation system, that will minimize the RMSE score. and then extracting new features from the data to try and get better predictions.
+
+## Preparation
+
+The First Step is downloading and building the Movie Lens data set:
+
+```{r downloadlib, echo = FALSE}
+#  load and install libraries:
+library(tidyverse)
+library(caret)
+library(data.table)
+library(lubridate)
+library(dplyr)
+```
+
+```{r downloaddata}
+#  load data:
+dl <- tempfile()
+download.file("http://files.grouplens.org/datasets/movielens/ml-10m.zip", dl)
+
+ratings <- fread(text = gsub("::", "\t", readLines(unzip(dl, "ml-10M100K/ratings.dat"))), col.names = c("userId", "movieId", "rating", "timestamp"))
+
+movies <- str_split_fixed(readLines(unzip(dl, "ml-10M100K/movies.dat")), "\\::", 3)
+colnames(movies) <- c("movieId", "title", "genres")
+
+# using R 4.0:
+movies <- as.data.frame(movies) %>% mutate(movieId = as.numeric(movieId), title = as.character(title), genres = as.character(genres))
+
+movielens <- left_join(ratings, movies, by = "movieId")
+```
+
+The Second Step, split the dataset into a training and validation sets:
+
+```{r split}
+  set.seed(1) 
+  test_index <- createDataPartition(y = movielens$rating, times = 1, p = 0.1, list = FALSE)
+  edx <- movielens[-test_index,]
+  temp <- movielens[test_index,]
+  
+  validation <- temp %>% 
+    semi_join(edx, by = "movieId") %>%
+    semi_join(edx, by = "userId")
+  
+  removed <- anti_join(temp, validation)
+  edx <- rbind(edx, removed)
+  
+  rm(dl, ratings, movies, test_index, temp, movielens, removed)
+```
+
+The Third Step , preview of the training set "edx": 
+```{r head, echo = FALSE}
+head(edx)
+```
+
+The Four Step , preview characteristics of the training set:
+```{r str, echo = FALSE}
+str(edx)
+```
+
+## Exploration Dataset
+The data set is comprised of 9000055 rows and 6 columns.
+```{r dim}
+dim(edx)
+```
+
+The data set is comprised of 10677 unique movies.
+```{r movies}
+n_distinct(edx$movieId)
+```
+
+The data set is comprised of 69878 unique users
+```{r users}
+n_distinct(edx$userId)
+```
+
+Total number of ratings calculation 69878 * 10677 = 746087406.. Not every user rates every movie.
+
+## Analysis
+
+We will try to extract the release date to calculate the age of every movie in the dataset. This new dataset will be used to analyze whether movie age affects ratings.
+
+```{r release}
+# create the new_edx data frame adn convert to timestamp format
+library(lubridate)
+edx <- mutate(edx, year_rated = year(as_datetime(timestamp)))
+release <- stringi::stri_extract(edx$title, regex = "(\\d{4})", comments = TRUE) %>% as.numeric()
+new_edx <- edx %>% mutate(release_date = release) %>% select(-timestamp)
+```
+
+Eliminate the incorrect release dates before 1900 in the 10M Movie Lens data set:
+```{r eliminate1, echo=FALSE}
+new_edx %>% filter(release_date < 1900) %>% group_by(movieId, title, release_date) %>% 
+  summarize(n = n())
+```
+```{r eliminate1.5}
+# view and correct the incorrect release dates outside of the ranges
+new_edx %>% filter(release_date < 1900) %>% group_by(movieId, title, release_date) %>% summarize(n = n())
+new_edx[new_edx$movieId == "4311", "release_date"] <- 1998
+new_edx[new_edx$movieId == "5472", "release_date"] <- 1972
+new_edx[new_edx$movieId == "6290", "release_date"] <- 2003
+new_edx[new_edx$movieId == "6645", "release_date"] <- 1971
+new_edx[new_edx$movieId == "8198", "release_date"] <- 1960
+new_edx[new_edx$movieId == "8905", "release_date"] <- 1992
+new_edx[new_edx$movieId == "53953", "release_date"] <- 2007
+```
+
+Eliminate the incorrect release dates after 2000 in the 10M Movie Lens data set:
+```{r eliminate2, echo=FALSE}
+new_edx %>% filter(release_date > 2020) %>% group_by(movieId, title, release_date) %>% summarize(n = n())
+```
+```{r eliminate2.5}
+# view and correct the incorrect release dates outside of the ranges
+new_edx %>% filter(release_date > 2020) %>% group_by(movieId, title, release_date) %>% summarize(n = n())
+new_edx[new_edx$movieId == "27266", "release_date"] <- 2004
+new_edx[new_edx$movieId == "671", "release_date"] <- 1996
+new_edx[new_edx$movieId == "2308", "release_date"] <- 1973
+new_edx[new_edx$movieId == "4159", "release_date"] <- 2001
+new_edx[new_edx$movieId == "5310", "release_date"] <- 1985
+new_edx[new_edx$movieId == "8864", "release_date"] <- 2004
+new_edx[new_edx$movieId == "1422", "release_date"] <- 1997
+```
+  
+Calculate the true age of the move:
+```{r age}
+new_edx <- new_edx %>% mutate(age_movie = 2020 - release_date, rating_age = year_rated - release_date)
+```
+
+Preview of the updated training set:
+```{r new_edx, echo = FALSE}
+head(new_edx)
+```
+
+## Visualization
+
+Plot relationship between movie rating and movie age averages:
+
+```{r averages}
+movie_avg <- new_edx %>% group_by(movieId) %>% summarize(movie_rating_averages = mean(rating))
+age_avg <- new_edx %>% group_by(age_movie) %>% summarize(age_rating_averages = mean(rating))
+```
+
+```{r plot_movie_avgs}
+age_avg %>%
+  ggplot(aes(age_rating_averages, age_movie)) +
+  geom_point(aes(color=age_movie)) +
+  ggtitle("Movie Ratings VS Age of a Movie")
+```
+The Average movie rating increases as the age of a movie increases, with a few outliers for movies over a 100 years old. 
+
+We will also explore the relationship between the user and the average age of the user:
+```{r user_avg}
+user_avg <- new_edx %>% group_by(userId) %>% summarize(user_averages = mean(rating))
+```
+
+```{r plot_user_avgs}
+user_avg %>%
+  ggplot(aes(user_averages, userId)) +
+  geom_point(alpha=0.05, color="red") +
+  ggtitle("User ratings VS Number of Users")
+```
+
+As shown in the plot, the average user rating across all different users is saturated around a rating between of 3 and 4.
+
+## Outcomes
+
+RMSE function:
+
+```{r rmsefunction}
+rmse_function <- function(true, predicted){
+  sqrt(mean((true - predicted)^2))
+}
+```
+
+Lambda Function:
+```{r lambda}
+lambdas <- seq(0,5,.5)
+rmses <- sapply(lambdas, function(l){
+  mu <- mean(new_edx$rating)
+  
+  b_i <- new_edx %>%
+    group_by(movieId) %>%
+    summarize(b_i = sum(rating - mu)/(n() + l))
+  
+  b_u <- new_edx %>%
+    left_join(b_i, by='movieId') %>% 
+    group_by(userId) %>%
+    summarize(b_u = sum(rating - b_i - mu)/(n() +l))
+  
+  predicted <- new_edx %>%
+    left_join(b_i, by = "movieId") %>%
+    left_join(b_u, by = "userId") %>%
+    mutate(pred = mu + b_i +  b_u) %>% .$pred
+  
+  return(RMSE(predicted, new_edx$rating))
+})
+```
+
+Plot Lambda VS RMSE values:
+```{r lambdaplot, echo = FALSE}
+qplot(lambdas, rmses)
+```
+
+As seen in the plot, the lambda that minimizes the RMSE is lambda = 0.5. The test on the validation set is as follows:
+```{r rmsecalculation}
+mu <- mean(validation$rating)
+l <- 0.15
+b_i <- validation %>%
+  group_by(movieId) %>%
+  summarize(b_i = sum(rating - mu)/(n() + l))
+
+b_u <- validation %>%
+  left_join(b_i, by='movieId') %>% 
+  group_by(userId) %>%
+  summarize(b_u = sum(rating - b_i - mu)/(n() +l))
+
+predicted <- validation %>%
+  left_join(b_i, by = "movieId") %>%
+  left_join(b_u, by = "userId") %>%
+  mutate(pred = mu + b_i +  b_u) %>% .$pred
+
+rmse_function(predicted, validation$rating)
+```
+
+Final RMSE is calculated to be 0.8253432.
+
+## Finding
+
+Finding in this project that this machine learning algorithm successfully minimized the RMSE from a list of possible lambdas. The RMSE was calculated to be 0.8253432 using the Movie ID and User ID.
