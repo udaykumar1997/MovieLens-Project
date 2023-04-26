@@ -10,6 +10,7 @@ This project is done as part of the Harvard Data Science Professional Capstone -
 You can see the [Certificate of Completion](https://drive.google.com/drive/folders/1BxyOJFxdxlNcJ4o5Tf8cIS0t9aHWpK2n?usp=share_link) and other certificates in my [Certificates Repo](https://drive.google.com/drive/folders/18qDSyJrg_XFfTNX3burojlAMCdH3XgOx?usp=sharing) that contains all my certificates obtained through my journey as a self-made Data Science and better developer.
 
 <br/>
+
 # A recommender system based on MovieLens database that predict movie ratings.
 MovieLens Recommender System Project
 The primary objective of this project is to create a recommender system using the MovieLens dataset.
