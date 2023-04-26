@@ -5,6 +5,7 @@ This project is done as part of the Harvard Data Science Professional Capstone -
 [Data Science: Capstone](https://www.edx.org/course/data-science-capstone) is the final course for the [Professional Certificate Program in Data Science](https://www.edx.org/professional-certificate/harvardx-data-science) taught by the famous Prof. of Biostatistics Rafael Irizarry from Harvard University through [edX platform](https://www.edx.org).
 
 <br/>
+
 ## Certificate of Completion
 You can see the [Certificate of Completion](https://drive.google.com/drive/folders/1BxyOJFxdxlNcJ4o5Tf8cIS0t9aHWpK2n?usp=share_link) and other certificates in my [Certificates Repo](https://drive.google.com/drive/folders/18qDSyJrg_XFfTNX3burojlAMCdH3XgOx?usp=sharing) that contains all my certificates obtained through my journey as a self-made Data Science and better developer.
 
